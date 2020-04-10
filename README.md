@@ -19,14 +19,14 @@ Docker must be installed. See: [how to install docker](https://docs.docker.com/e
 
 To build the docker images, run:
 ```
-$ docker-compose build
+$ sudo docker-compose build
 ```
 
 ## Running
 
 To run the rails web container and the mongoDB database container, run:
 ```
-$ docker-compose up
+$ sudo docker-compose up
 ```
 
 ## Database
@@ -35,7 +35,7 @@ $ docker-compose up
 
 Run:
 ```
-$ docker-compose run web rake db:setup
+$ sudo docker-compose run web rake db:setup
 ```
 
 ### Migrations
@@ -46,7 +46,7 @@ There is no need to run migrations on MongoDB.
 
 To seed the database with initial values:
 ```
-$ docker-compose run web rake db:seed
+$ sudo docker-compose run web rake db:seed
 ```
 
 ### Indexes
