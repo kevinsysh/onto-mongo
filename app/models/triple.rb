@@ -14,13 +14,15 @@ class Triple
    private
    def set_ontoclass
      sparql = "SELECT ?domain ?range ?type
-	    WHERE { #{@predicate.predicate.to_s} <http://www.w3.org/2000/01/rdf-schema#domain> ?domain .
-              #{@predicate.predicate.to_s} <http://www.w3.org/2000/01/rdf-schema#range> ?range .
-              #{@predicate.predicate.to_s} <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?type }"
+	    WHERE { <#{@predicate.predicate.to_s}> <http://www.w3.org/2000/01/rdf-schema#domain> ?domain .
+              <#{@predicate.predicate.to_s}> <http://www.w3.org/2000/01/rdf-schema#range> ?range .
+              <#{@predicate.predicate.to_s}> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?type }"
 
      ontology = Ontology.new("/myapp/ontologia/basic-lattes.rdf")
 
      result = ontology.execute(sparql)
+     puts "awesome!"
+     puts result.count
 
      @subject.ontoclass = result.first.domain
      @object.ontoclass = result.first.range

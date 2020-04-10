@@ -6,6 +6,8 @@ class OntoQuery
 
   def initialize(sparql)
     @raw_sxp = SPARQL.parse(sparql).to_sxp
+    puts 'raw_sxp------------------'
+    puts @raw_sxp
     @sxp     = SXP::Reader::SPARQL.read(@raw_sxp)
   end
 

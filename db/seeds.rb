@@ -26,7 +26,7 @@ def generate_filenames_list
 end
 
 def filenames
-  cvs_path = "/home/thiago/Desktop/temp-data/lattes-unzip"
+  cvs_path = "/home/kevin/Desktop/temp-data"
   output = `ls -f -A #{cvs_path}`
   dirs = output.split("\n").drop(2) # skip . and ..
 
@@ -118,16 +118,17 @@ puts '------------------------------------------'
 puts 'ADD TEST RESEARCHER Kristen Nygaard WITH TWO PUBLICATIONS IN THE SAME YEAR'
 puts '------------------------------------------'
 
-model = Researcher.create(name: "Kristen Nygaard",
-                       name_in_citations: "Nygaard, K.",
-                       country: "Noruega",
-                       resume: "ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+model = Researcher.create(name: "Test Author",
+                       name_in_citations: "Test citations",
+                       country: "Canada",
+                       resume: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                       institution: "Carleton University")
 model.save!
 
 model.publications.create([
-  { nature: "COMPLETO", title: "Rosing Prize Paper Test", year: 1999, country: "Noruega", language: "Inglês", medium: "IMPRESSO"},
-  { nature: "COMPLETO", title: "Turing Award Paper Test", year: 2001, country: "Noruega", language: "Inglês", medium: "IMPRESSO"},
-  { nature: "COMPLETO", title: "IEEE John von Neumann Medal Paper Test", year: 2001, country: "Noruega", language: "Inglês", medium: "IMPRESSO"}
+  { nature: "COMPLETO1", title: "Rosing Prize Paper Test1", year: 1999, country: "Noruega", language: "Inglês", medium: "IMPRESSO"},
+  { nature: "COMPLETO1", title: "Turing Award Paper Test1", year: 2001, country: "Noruega", language: "Inglês", medium: "IMPRESSO"},
+  { nature: "COMPLETO1", title: "IEEE John von Neumann Medal Paper Test1", year: 2001, country: "Noruega", language: "Inglês", medium: "IMPRESSO"}
 ])
 
 model.save!

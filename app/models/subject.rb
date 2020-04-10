@@ -6,6 +6,10 @@ class Subject
   def initialize(subject)
     @subject = subject
     @relations = []
+    puts 's-----------------------------------'
+    puts @subject.class
+    puts subject.class
+    puts @subject.to_s
     if self.is_variable?
       @name = @subject.to_s.split('?')[1]
     else
@@ -22,7 +26,7 @@ class Subject
   end
 
   def is_variable?
-    return @subject[0].eql?("?")
+    return @subject.to_s[0].eql?("?")
   end
 
   def raw_ontoclass

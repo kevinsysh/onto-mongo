@@ -8,6 +8,8 @@ class Ontology
   attr_accessor :subject, :repository, :sparql, :graph, :vertex_hash, :data_to_insert
 
   def initialize(file_name)
+    puts 'file_name-----------------------'
+    puts file_name
     @repository = RDF::Repository.load(file_name)
     @sparql = SPARQL::Client.new(@repository)
     @vertex_hash = Hash.new #hash que guarda todos os vertices do grafo para facilitar a busca
@@ -15,11 +17,14 @@ class Ontology
   end
 
   def execute(sparql)
+    puts '2------------------------------'
+    puts sparql
+    puts @repository.empty?
     SPARQL.execute(sparql, @repository)
   end
 
   def translate(sparql)
-
+    puts 'translate-------------------------------------'
     #graph = Graph.new(OntoSplit.split(sparql))
     @graph = RGL::DirectedAdjacencyGraph.new
     triples = OntoSplit.split(sparql)

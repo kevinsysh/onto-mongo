@@ -9,6 +9,7 @@ class Researcher
   field :name_in_citations, type: String
   field :country, type: String
   field :resume, type: String
+  field :institution, type: String
 
   validates :name, :uniqueness => true
   validates :name_in_citations, :uniqueness => true

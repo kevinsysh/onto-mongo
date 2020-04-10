@@ -18,7 +18,7 @@ class OntoObject
   end
 
   def is_variable?
-    return @object[0].eql?("?")
+    return @object.to_s[0].eql?("?")
   end
 
   def raw_ontoclass
